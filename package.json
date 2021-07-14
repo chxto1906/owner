@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/chxto1906/owner/issues"
   },
-  "homepage": "https://github.com/chxto1906/owner#readme"
+  "homepage": "https://github.com/chxto1906/owner#readme",
+  "publishConfig": {
+     "@chxto1906:registry": "https://npm.pkg.github.com"
+  }
 }
