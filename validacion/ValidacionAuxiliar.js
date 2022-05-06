@@ -309,25 +309,63 @@ exports.algoritmoModulo11 = function(digitosIniciales, digitoVerificador, tipo){
 }
 
 exports.validarPassword = function(password){
-
+    var respuesta = {
+       "longitud_minima": {
+           "estado": true,
+           "mensaje": "Mínimo 8 caracteres."
+       },
+       "longitud_maxima": {
+           "estado": true,
+           "mensaje": "Máximo 16 caracteres."
+       } ,
+       "digitos": {
+           "estado": true,
+           "mensaje": "Al menos un dígito(0-9)."
+       },
+       "mayuscula": {
+            "estado": true,
+            "mensaje": "Al menos una letra mayúscula."
+       },
+       "minuscula": {
+           "estado": true,
+           "mensaje": "Al menos una letra minúscula."
+       },
+       "especiales": {
+           "estado": true,
+           "mensaje": "Al menos un caracter especial de los siguientes: .!@#$%&*"
+       },
+        "estado": true
+    };
     if(password.length < 8){
-        return false;
+        respuesta["estado"] = false;
+        respuesta["longitud_minima"]["estado"] = false;
+        //return false;
     }
     if(password.length > 16){
-        return false;
+        respuesta["estado"] = false;
+        respuesta["longitud_maxima"]["estado"] = false;
+        //return false;
     }
     if(!/[0-9]/.test(password)){
-        return false;
+        respuesta["estado"] = false;
+        respuesta["digitos"]["estado"] = false;
+        //return false;
     }
     if(!/[a-z]/.test(password)){
-        return false;
+        respuesta["estado"] = false;
+        respuesta["minuscula"]["estado"] = false;
+        //return false;
     }
     if(!/[A-Z]/.test(password)){
-        return false;
+        respuesta["estado"] = false;
+        respuesta["mayuscula"]["estado"] = false;
+        //return false;
     }
     if(!/[.!@#$%&*]/.test(password)) {
-        return false;
+        respuesta["estado"] = false;
+        respuesta["especiales"]["estado"] = false;
+        //return false;
     }
 
-    return true;
+    return respuesta;
 };
