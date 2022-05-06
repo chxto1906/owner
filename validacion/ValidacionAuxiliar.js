@@ -325,7 +325,7 @@ exports.validarPassword = function(password){
     if(!/[A-Z]/.test(password)){
         return false;
     }
-    if(!/[!@#$%^&*]/.test(password)) {
+    if(!/[.!@#$%&*]/.test(password)) {
         return false;
     }
 
